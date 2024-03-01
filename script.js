@@ -90,13 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function updateEverySecond() {
+function updateEverySecond() {
     updateTimeAndDate();
     updateCountdown(15, 10, endOfSchoolCountdownElement, "School Ended! 🔥🎉");
-    updateCountdownForLunch(11, 50, firstLunchCountdownElement, "1st Lunch Ended! 🎉");
-    updateCountdownForLunch(12, 45, secondLunchCountdownElement, "2nd Lunch Ended! 🎉");
-  }
+    updateCountdown(11, 50, firstLunchCountdownElement, "1st Lunch Ended! 🎉");
+    updateCountdown(12, 45, secondLunchCountdownElement, "2nd Lunch Ended! 🎉");
+}
 
-  setInterval(updateEverySecond, 1000);
-  updateTimeAndDate();
-});
+setInterval(updateEverySecond, 1000);
+updateTimeAndDate();
