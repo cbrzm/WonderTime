@@ -17,7 +17,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
-    position: relative; /* Add relative positioning */
+    position: relative;
 }
 
 #introImage img {
@@ -94,7 +94,6 @@ body {
     color: #fff;
 }
 
-/* New style for the Version text */
 .version-text {
     position: absolute;
     top: 10px;
