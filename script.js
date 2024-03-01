@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const instagramHandleElement = document.getElementById("instagramHandle");
   const introImageElement = document.getElementById("introImage");
   const randomTextElement = document.getElementById("randomText");
+  const firstLunchCountdownElement = document.getElementById("firstLunchCountdown");
+  const secondLunchCountdownElement = document.getElementById("secondLunchCountdown");
 
   // Function to update time and date
   function updateTimeAndDate() {
@@ -29,15 +31,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Update countdown for 3:10 PM
     updateCountdownFor3PM();
+    // Update countdown for 1st Lunch
+    updateCountdownForLunch(11, 50, firstLunchCountdownElement, "1st Lunch Countdown is done!");
+    // Update countdown for 2nd Lunch
+    updateCountdownForLunch(12, 45, secondLunchCountdownElement, "2nd Lunch Countdown is done!");
   }
 
-  // Function to update countdown for 3:10 PM
-  function updateCountdownFor3PM() {
+  // Function to update countdown for a specific time
+  function updateCountdownForLunch(hours, minutes, countdownElement, finishMessage) {
     const now = new Date();
     const targetTime = new Date(now);
-    targetTime.setHours(15, 10, 0); // Set target time to 3:10 PM
+    targetTime.setHours(hours, minutes, 0);
 
-    // If it's past 12 AM in Las Vegas, reset countdown to 3:10 PM
+    // If it's past 12 AM, reset countdown to lunch time
     if (
       now.getHours() === 0 &&
       now.getMinutes() === 0 &&
@@ -56,14 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-      countdown310Element.innerText = `Countdown for 3:10 PM: ${hours}h ${minutes}m ${seconds}s`;
+      countdownElement.innerText = `Countdown: ${hours}h ${minutes}m ${seconds}s`;
     } else {
-      countdown310Element.innerText = "School Ended! 🎉🔥🎉";
-      clearInterval(countdown310Interval);
+      countdownElement.innerText = finishMessage;
       setTimeout(() => {
-        updateCountdownFor3PM();
-        countdown310Interval = setInterval(updateCountdownFor3PM, 1000); // Restart countdown at 3:10 PM
-      }, 10000); // Display "School Ended" message for 10 seconds
+        countdownElement.innerText = ""; // Clear the message after 10 seconds
+        updateCountdownForLunch(hours, minutes, countdownElement, finishMessage);
+      }, 10000); // Display the finish message for 10 seconds
     }
   }
 
@@ -91,8 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const texts = [
       "Ya'll don't know how to do math?",
       "Ya'll must be hella bored 💀",
-      "Never Watch Skibidi Toilet!🤮"
-  
     ];
     const randomIndex = Math.floor(Math.random() * texts.length);
     randomTextElement.innerText = texts[randomIndex];
@@ -102,7 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateEverySecond() {
     updateTimeAndDate();
     updateCountdownFor3PM();
-    // Add more specific logic for different periods if needed
+    updateCountdownForLunch(11, 50, firstLunchCountdownElement, "1st Lunch Countdown is done!");
+    updateCountdownForLunch(12, 45, secondLunchCountdownElement, "2nd Lunch Countdown is done!");
   }
 
   // Initial setup
@@ -115,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCountdownFor3PM();
 
   // Update countdown for 3:10 PM every second
-  let countdown310Interval = setInterval(updateCountdownFor3PM, 1000);
+  setInterval(updateCountdownFor3PM, 1000);
 
   // Update random text every 3 seconds
   setInterval(updateRandomText, 3000);
