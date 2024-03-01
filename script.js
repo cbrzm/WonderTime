@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const timeElement = document.getElementById("time");
   const countdownElement = document.getElementById("countdown");
   const countdown310Element = document.getElementById("countdown310");
+  const firstLunchCountdownElement = document.getElementById("firstLunchCountdown");
+  const secondLunchCountdownElement = document.getElementById("secondLunchCountdown");
   const instagramHandleElement = document.getElementById("instagramHandle");
   const introImageElement = document.getElementById("introImage");
   const randomTextElement = document.getElementById("randomText");
-  const firstLunchCountdownElement = document.getElementById("firstLunchCountdown");
-  const secondLunchCountdownElement = document.getElementById("secondLunchCountdown");
 
   // Function to update time and date
   function updateTimeAndDate() {
