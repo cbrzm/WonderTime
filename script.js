@@ -95,7 +95,11 @@ function updateEverySecond() {
     updateCountdown(15, 10, endOfSchoolCountdownElement, "School Ended! 🔥🎉");
     updateCountdown(11, 50, firstLunchCountdownElement, "1st Lunch Ended! 🎉");
     updateCountdown(12, 45, secondLunchCountdownElement, "2nd Lunch Ended! 🎉");
+    updateCountdown(15, 10, timeUntilSchoolEndsElement, "School Ended! 🔥🎉");
 }
+
+setInterval(updateEverySecond, 1000);
+updateTimeAndDate();
 
 setInterval(updateEverySecond, 1000);
 updateTimeAndDate();
