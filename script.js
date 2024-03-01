@@ -49,11 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
-      countdownElement.innerText = `Countdown: ${hours}h ${minutes}m ${seconds}s`;
+      countdownElement.innerText = `First Lunch: ${hours}h ${minutes}m ${seconds}s`;
     } else {
       countdownElement.innerText = finishMessage;
       setTimeout(() => {
-        countdownElement.innerText = "";
+        countdownElement.innerText = "2nd Lunch";
         updateCountdown(hours, minutes, countdownElement, finishMessage);
       }, 10000);
     }
