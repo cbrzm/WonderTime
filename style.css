@@ -17,6 +17,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
+    position: relative; /* Add relative positioning */
 }
 
 #introImage img {
@@ -30,7 +31,9 @@ body {
 #countdown,
 #countdown310,
 #instagramHandle,
-#randomText {
+#randomText,
+#firstLunchCountdown,
+#secondLunchCountdown {
     margin: 10px 0;
     padding: 10px;
     background-color: white;
@@ -46,11 +49,15 @@ body {
 #countdown,
 #countdown310,
 #instagramHandle,
-#randomText {
+#randomText,
+#firstLunchCountdown,
+#secondLunchCountdown {
     font-size: 16px;
 }
 
-#countdown310 {
+#countdown310,
+#firstLunchCountdown,
+#secondLunchCountdown {
     font-weight: bold;
 }
 
@@ -76,13 +83,23 @@ body {
     text-decoration: none;
     cursor: pointer;
     color: #fff;
-    background-color: #5865F2; /* Updated color */
-    border: 2px solid #5865F2; /* Updated color for the border */
+    background-color: #5865F2;
+    border: 2px solid #5865F2;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .styled-button:hover {
-    background-color: #3e4d8c; /* Darker shade on hover */
+    background-color: #3e4d8c;
     color: #fff;
+}
+
+/* New style for the Version text */
+.version-text {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
 }
