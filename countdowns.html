@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdowns | CBRZM's Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #schoolDismissal {
+            color: #3498db;
+            font-size: 24px;
+        }
+
+        #firstLunch {
+            color: #3498db;
+            font-size: 24px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Countdowns</h1>
+    </header>
+
+    <section>
+        <div id="schoolDismissal"></div>
+        <div id="firstLunch"></div>
+    </section>
+
+    <footer>
+        &copy; 2024 CBRZM's Website. All rights reserved.
+    </footer>
+
+    <script>
+        // Countdown for School Dismissal (3:11 PM)
+        var schoolDismissalDate = new Date();
+        schoolDismissalDate.setHours(15, 11, 0, 0); // Set the countdown time (3:11 PM)
+
+        // Countdown for 1st Lunch (11:50 AM)
+        var firstLunchDate = new Date();
+        firstLunchDate.setHours(11, 50, 0, 0); // Set the countdown time (11:50 AM)
+
+        function updateCountdowns() {
+            var currentTime = new Date();
+
+            // School Dismissal Countdown
+            var schoolDismissalTimeRemaining = schoolDismissalDate - currentTime;
+            if (schoolDismissalTimeRemaining > 0) {
+                var hours = Math.floor(schoolDismissalTimeRemaining / (1000 * 60 * 60));
+                var minutes = Math.floor((schoolDismissalTimeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((schoolDismissalTimeRemaining % (1000 * 60)) / 1000);
+                document.getElementById("schoolDismissal").innerHTML = "School ends in " + hours + "h " + minutes + "m " + seconds + "s";
+            } else {
+                document.getElementById("schoolDismissal").innerHTML = "School ended!";
+            }
+
+            // 1st Lunch Countdown
+            var firstLunchTimeRemaining = firstLunchDate - currentTime;
+            if (firstLunchTimeRemaining > 0) {
+                var hours = Math.floor(firstLunchTimeRemaining / (1000 * 60 * 60));
+                var minutes = Math.floor((firstLunchTimeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((firstLunchTimeRemaining % (1000 * 60)) / 1000);
+                document.getElementById("firstLunch").innerHTML = "1st Lunch in " + hours + "h " + minutes + "m " + seconds + "s";
+            } else if (currentTime.getHours() < 12 || (currentTime.getHours() === 12 && currentTime.getMinutes() < 20)) {
+                document.getElementById("firstLunch").innerHTML = "It's 1st lunch!";
+            } else {
+                document.getElementById("firstLunch").innerHTML = "1st Lunch is over";
+            }
+        }
+
+        setInterval(updateCountdowns, 1000); // Update every second
+        updateCountdowns(); // Initial update
+    </script>
+
+</body>
+
+</html>
