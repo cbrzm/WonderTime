@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>404 Error</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBRZM's Website</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f0f0f0;
             color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            color: white;
+            padding: 20px;
             text-align: center;
-            padding: 50px;
-            overflow: hidden; /* Prevent page scrolling */
         }
 
-        h1 {
-            color: #d9534f;
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
         }
 
         footer {
-            margin-top: 20px;
-        }
-
-        canvas {
-            border: 1px solid white;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
-<body>
-    <h1>404 Error! Website is down for now!</h1>
-    <p>Estimated Date of Fix: April 1, 2024</p>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQepmlt98AZDMTrEJ1XpHnvishWjVWXJe4UOA&usqp=CAU" alt="Robot Image">
 
- 
+<body>
+
+    <header>
+        <h1>CBRZM's Website!</h1>
+    </header>
+
+    <section>
+        <button id="countdownsBtn" onclick="openCountdownsPage()">Countdowns</button>
+    </section>
+
+    <footer>
+        &copy; 2024 CBRZM's Website. All rights reserved.
+    </footer>
+
+    <script>
+        function openCountdownsPage() {
+            window.location.href = "countdowns.html";
+        }
+    </script>
+
+</body>
+
 </html>
