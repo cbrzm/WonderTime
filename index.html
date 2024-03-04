@@ -10,6 +10,7 @@
             color: #333;
             text-align: center;
             padding: 50px;
+            overflow: hidden; /* Prevent page scrolling */
         }
 
         h1 {
@@ -42,6 +43,7 @@
     </footer>
 
     <script>
+        // Tetris game code
         function getRandomInt(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
@@ -131,7 +133,7 @@
             context.font = '36px monospace';
             context.textAlign = 'center';
             context.textBaseline = 'middle';
-            context.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2);
+            context.fillText('WOMP WOMP!', canvas.width / 2, canvas.height / 2);
         }
 
         const canvas = document.getElementById('game');
@@ -239,23 +241,28 @@
 
         document.addEventListener('keydown', function (e) {
             if (gameOver) return;
-            if (e.which === 37 || e.which === 39) {
-                const col = e.which === 37
-                    ? tetromino.col - 1
-                    : tetromino.col + 1;
+
+            // Prevent scrolling for arrow keys
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+                e.preventDefault();
+            }
+
+            if (e.key === 'ArrowLeft') {
+                const col = tetromino.col - 1;
                 if (isValidMove(tetromino.matrix, tetromino.row, col)) {
                     tetromino.col = col;
                 }
-            }
-
-            if (e.which === 38) {
+            } else if (e.key === 'ArrowRight') {
+                const col = tetromino.col + 1;
+                if (isValidMove(tetromino.matrix, tetromino.row, col)) {
+                    tetromino.col = col;
+                }
+            } else if (e.key === 'ArrowUp') {
                 const matrix = rotate(tetromino.matrix);
                 if (isValidMove(matrix, tetromino.row, tetromino.col)) {
                     tetromino.matrix = matrix;
                 }
-            }
-
-            if (e.which === 40) {
+            } else if (e.key === 'ArrowDown') {
                 const row = tetromino.row + 1;
                 if (!isValidMove(tetromino.matrix, row, tetromino.col)) {
                     tetromino.row = row - 1;
