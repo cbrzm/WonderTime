@@ -29,6 +29,15 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        #backButton {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
         #schoolDismissal {
             color: #3498db;
             font-size: 24px;
@@ -58,6 +67,7 @@
     </header>
 
     <section>
+        <button id="backButton" onclick="goBack()">Back</button>
         <div id="schoolDismissal"></div>
         <div id="firstLunch"></div>
     </section>
@@ -67,18 +77,19 @@
     </footer>
 
     <script>
-        // Countdown for School Dismissal (3:11 PM)
-        var schoolDismissalDate = new Date();
-        schoolDismissalDate.setHours(15, 11, 0, 0); // Set the countdown time (3:11 PM)
+        function goBack() {
+            window.location.href = "index.html";
+        }
 
-        // Countdown for 1st Lunch (11:50 AM)
+        var schoolDismissalDate = new Date();
+        schoolDismissalDate.setHours(15, 11, 0, 0);
+
         var firstLunchDate = new Date();
-        firstLunchDate.setHours(11, 50, 0, 0); // Set the countdown time (11:50 AM)
+        firstLunchDate.setHours(11, 50, 0, 0);
 
         function updateCountdowns() {
             var currentTime = new Date();
 
-            // School Dismissal Countdown
             var schoolDismissalTimeRemaining = schoolDismissalDate - currentTime;
             if (schoolDismissalTimeRemaining > 0) {
                 var hours = Math.floor(schoolDismissalTimeRemaining / (1000 * 60 * 60));
@@ -89,7 +100,6 @@
                 document.getElementById("schoolDismissal").innerHTML = "School ended!";
             }
 
-            // 1st Lunch Countdown
             var firstLunchTimeRemaining = firstLunchDate - currentTime;
             if (firstLunchTimeRemaining > 0) {
                 var hours = Math.floor(firstLunchTimeRemaining / (1000 * 60 * 60));
@@ -103,8 +113,8 @@
             }
         }
 
-        setInterval(updateCountdowns, 1000); // Update every second
-        updateCountdowns(); // Initial update
+        setInterval(updateCountdowns, 1000);
+        updateCountdowns();
     </script>
 
 </body>
