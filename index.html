@@ -39,6 +39,7 @@
 
     <footer>
         <p>While you're here, play some Tetris!</p>
+        <p id="score">Score: 0</p>
         <canvas width="320" height="640" id="game"></canvas>
     </footer>
 
@@ -197,6 +198,7 @@
         };
 
         let count = 0;
+        let score = 0;
         let tetromino = getNextTetromino();
         let rAF = null;
         let gameOver = false;
@@ -237,16 +239,16 @@
                     }
                 }
             }
+
+            updateScore();
+        }
+
+        function updateScore() {
+            document.getElementById('score').innerText = `Score: ${score}`;
         }
 
         document.addEventListener('keydown', function (e) {
             if (gameOver) return;
-
-            // Prevent scrolling for arrow keys
-            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-                e.preventDefault();
-            }
-
             if (e.key === 'ArrowLeft') {
                 const col = tetromino.col - 1;
                 if (isValidMove(tetromino.matrix, tetromino.row, col)) {
@@ -270,12 +272,8 @@
                     return;
                 }
                 tetromino.row = row;
+                score += 100; // Increase score when moving down
             }
-        });
-
-        document.addEventListener('wheel', function (e) {
-            // Allow scrolling with the mouse
-            document.body.style.overflowY = 'scroll';
         });
 
         rAF = requestAnimationFrame(loop);
