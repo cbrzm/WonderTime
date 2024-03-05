@@ -17,19 +17,35 @@
     flex-direction: column; /* Center elements vertically */
     color: white;
   }
+
+  #playerNames {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #playerNames input {
+    font-size: 16px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+
+  #playerNames button {
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
   </style>
 </head>
 <body>
 <div id="playerNames">
+    <label for="player1Name">Who is Player 1? </label>
     <input type="text" id="player1Name" placeholder="Enter Player 1's Name">
-    <button onclick="setPlayerNames()">Next</button>
+    <label for="player2Name">Who is Player 2? </label>
+    <input type="text" id="player2Name" placeholder="Enter Player 2's Name">
+    <button onclick="setPlayerNames()">Start Game</button>
 </div>
 <canvas width="750" height="585" id="game" style="display: none;"></canvas>
-<div id="gameOver" style="display: none;">
-    <h2>Game Over!</h2>
-    <p id="winner"></p>
-    <button onclick="restartGame()">Play Again</button>
-</div>
 <script>
 const canvas = document.getElementById('game');
 const context = canvas.getContext('2d');
@@ -140,7 +156,8 @@ function loop() {
     // determine who scored
     if (ball.x < 0) {
         player2Score++;
-    } else {
+    }
+    else {
         player1Score++;
     }
 
@@ -181,49 +198,27 @@ function loop() {
     context.fillRect(canvas.width / 2 - grid / 2, i, grid, grid);
   }
 
-  // display scores
+  // display player names and scores
   context.font = '20px Arial';
-  context.fillText(`${player1}: ${player1Score}`, canvas.width / 4, 30);
-  context.fillText(`${player2}: ${player2Score}`, canvas.width * 3 / 4 - 100, 30);
-
-  // check for game over
-  if (player1Score >= 5 || player2Score >= 5) {
-    gameOver();
-  }
+  context.fillText(player1 + ': ' + player1Score, 50, 30);
+  context.fillText(player2 + ': ' + player2Score, canvas.width - 150, 30);
 }
 
+// function to set player names and start the game
 function setPlayerNames() {
-    player1 = document.getElementById('player1Name').value || 'Player 1';
-    document.getElementById('playerNames').innerHTML = `<input type="text" id="player2Name" placeholder="Enter Player 2's Name"><button onclick="startGame()">Start Game</button>`;
-}
+    player1 = document.getElementById('player1Name').value;
+    player2 = document.getElementById('player2Name').value;
 
-function startGame() {
-    player2 = document.getElementById('player2Name').value || 'Player 2';
+    if (player1.trim() === '' || player2.trim() === '') {
+        alert('Please enter both player names.');
+        return;
+    }
+
     document.getElementById('playerNames').style.display = 'none';
     document.getElementById('game').style.display = 'block';
+
+    // start the game loop
     requestAnimationFrame(loop);
-}
-
-function gameOver() {
-    document.getElementById('game').style.display = 'none';
-    document.getElementById('gameOver').style.display = 'block';
-
-    let winner = player1Score > player2Score ? player1 : player2;
-    document.getElementById('winner').innerHTML = `${winner} wins!`;
-
-    // reset scores for a new game
-    player1Score = 0;
-    player2Score = 0;
-}
-
-function restartGame() {
-    document.getElementById('gameOver').style.display = 'none';
-    document.getElementById('playerNames').style.display = 'block';
-    ball.resetting = false;  // Ensure the ball is not resetting
-    player1 = "";
-    player2 = "";
-    document.getElementById('player1Name').value = '';
-    document.getElementById('player2Name').value = '';
 }
 
 // listen to keyboard events to move the paddles
@@ -259,8 +254,14 @@ document.addEventListener('keyup', function(e) {
   }
 });
 
-// start the game after setting player names
-// requestAnimationFrame(loop);
+// function to restart the game
+function restartGame() {
+    player1Score = 0;
+    player2Score = 0;
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    requestAnimationFrame(loop);
+}
 </script>
 </body>
 </html>
