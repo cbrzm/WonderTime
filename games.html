@@ -4,57 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CBRZM's Website</title>
+    <title>Games | CBRZM's Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f5f5f5;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
+@@ -27,7 +27,7 @@
             padding: 20px;
+            background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;  /* Align the button in the center */
             text-align: center;
         }
 
         button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 15px 30px;
-            margin: 10px;
+@@ -37,7 +37,7 @@
             font-size: 16px;
             border: none;
             cursor: pointer;
+            border-radius: 8px;  /* Rounded corners */
             border-radius: 8px;
         }
 
         footer {
-            margin-top: auto;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-        }
-    </style>
-</head>
+@@ -55,25 +55,20 @@
 <body>
 
     <header>
         <h1>CBRZM's Website!</h1>
+        <h1>Games | CBRZM's Website</h1>
     </header>
 
     <section>
         <button id="countdownsBtn" onclick="openCountdownsPage()">Countdowns</button>
         <button id="gamesBtn" onclick="openGamesPage()">Games</button>
-        <button id="snakeBtn" onclick="openSnakePage()">Snake</button>
         <button id="pongBtn" onclick="openPongPage()">Pong</button>
     </section>
 
@@ -69,12 +51,6 @@
 
         function openGamesPage() {
             window.location.href = "games.html";
-        }
-
-        function openSnakePage() {
-            window.location.href = "snake.html";
-        }
-
         function openPongPage() {
             window.location.href = "pong.html";
         }
