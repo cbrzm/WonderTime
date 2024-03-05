@@ -44,24 +44,26 @@
         font-family: 'Permanent Marker';
     }
 
-    #snake-button {
+    .game-button {
         display: block;
         margin: 20px auto;
         padding: 10px 20px;
         font-size: 18px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
         cursor: pointer;
     }
 </style>
 <body>
     <h1><b>Games Hub</b></h1>
-    <button id="snake-button" onclick="startSnakeGame()">Snake Game</button>
+    <button class="game-button" onclick="startSnakeGame()">Snake Game</button>
+    <button class="game-button" onclick="startPongGame()">Pong Game</button>
+
     <script>
         function startSnakeGame() {
             window.location.href = 'Snake.html';
+        }
+
+        function startPongGame() {
+            window.location.href = 'Pong.html';
         }
     </script>
 </body>
