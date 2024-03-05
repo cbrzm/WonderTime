@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBRZM's Website</title>
+    <title>Games | CBRZM's Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,7 +27,7 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;  /* Align the button in the center */
+            text-align: center;
         }
 
         button {
@@ -37,7 +37,7 @@
             font-size: 16px;
             border: none;
             cursor: pointer;
-            border-radius: 8px;  /* Rounded corners */
+            border-radius: 8px;
         }
 
         footer {
@@ -55,12 +55,11 @@
 <body>
 
     <header>
-        <h1>CBRZM's Website!</h1>
+        <h1>Games | CBRZM's Website</h1>
     </header>
 
     <section>
-        <button id="countdownsBtn" onclick="openCountdownsPage()">Countdowns</button>
-        <button id="gamesBtn" onclick="openGamesPage()">Games</button>
+        <button id="pongBtn" onclick="openPongPage()">Pong</button>
     </section>
 
     <footer>
@@ -68,12 +67,8 @@
     </footer>
 
     <script>
-        function openCountdownsPage() {
-            window.location.href = "countdowns.html";
-        }
-
-        function openGamesPage() {
-            window.location.href = "games.html";
+        function openPongPage() {
+            window.location.href = "pong.html";
         }
     </script>
 
