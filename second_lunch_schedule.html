@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>2nd Lunch Schedule</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .countdown {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>2nd Lunch Schedule</h1>
+    </header>
+
+    <section>
+        <p>Early Bird (EB) 7:50 am - 8:44 am</p>
+        <div id="ebCountdown" class="countdown"></div>
+
+        <p>1st Period 9:50 am - 9:55 am</p>
+        <div id="firstPeriodCountdown" class="countdown"></div>
+
+        <p>2nd Period 9:57 am - 10:53 am</p>
+        <div id="secondPeriodCountdown" class="countdown"></div>
+
+        <p>3rd Period 10:56 am - 11:50 am</p>
+        <div id="thirdPeriodCountdown" class="countdown"></div>
+
+        <p>4th Period 11:53 am - 12:47 pm</p>
+        <div id="fourthPeriodCountdown" class="countdown"></div>
+
+        <p>Second Lunch 12:47 pm - 1:17 pm</p>
+        <div id="secondLunchCountdown" class="countdown"></div>
+
+        <p>5th period 1:20 pm - 2:14 pm</p>
+        <div id="fifthPeriodCountdown" class="countdown"></div>
+
+        <p>6th period 2:17 pm - 3:11 pm</p>
+        <div id="sixthPeriodCountdown" class="countdown"></div>
+    </section>
+
+    <script>
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Function to update the countdown
+        function updateCountdown() {
+            updatePeriodCountdown("ebCountdown", 8, 44);
+            updatePeriodCountdown("firstPeriodCountdown", 9, 55);
+            updatePeriodCountdown("secondPeriodCountdown", 10, 53);
+            updatePeriodCountdown("thirdPeriodCountdown", 11, 50);
+            updatePeriodCountdown("fourthPeriodCountdown", 12, 47);
+            updatePeriodCountdown("secondLunchCountdown", 13, 17);
+            updatePeriodCountdown("fifthPeriodCountdown", 13, 20);
+            updatePeriodCountdown("sixthPeriodCountdown", 15, 11);
+        }
+
+        // Function to update the countdown for a specific period
+        function updatePeriodCountdown(countdownId, endHour, endMinute) {
+            const now = new Date();
+            const endTime = new Date();
+            endTime.setHours(endHour, endMinute, 0, 0);
+
+            const timeDifference = endTime - now;
+
+            if (timeDifference > 0) {
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                const countdownElement = document.getElementById(countdownId);
+                countdownElement.innerHTML = `Countdown: ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                const countdownElement = document.getElementById(countdownId);
+                countdownElement.innerHTML = "Period Ended";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
