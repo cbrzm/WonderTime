@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>1st Lunch Schedule</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #3498db, #e74c3c);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .countdown {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>1st Lunch Schedule</h1>
+    </header>
+
+    <section>
+        <p>Early Bird (EB) 7:50 am - 8:44 am</p>
+        <div id="ebCountdown" class="countdown"></div>
+
+        <p>1st Period 9:50 am - 9:55 am</p>
+        <div id="firstPeriodCountdown" class="countdown"></div>
+
+        <!-- Add similar countdown divs for other periods -->
+
+    </section>
+
+    <script>
+        // Update the countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Function to update the countdown
+        function updateCountdown() {
+            updatePeriodCountdown("ebCountdown", 8, 44);
+            updatePeriodCountdown("firstPeriodCountdown", 9, 55);
+            // Add similar calls for other periods
+        }
+
+        // Function to update the countdown for a specific period
+        function updatePeriodCountdown(countdownId, endHour, endMinute) {
+            const now = new Date();
+            const endTime = new Date();
+            endTime.setHours(endHour, endMinute, 0, 0);
+
+            const timeDifference = endTime - now;
+
+            if (timeDifference > 0) {
+                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+                const countdownElement = document.getElementById(countdownId);
+                countdownElement.innerHTML = `Countdown: ${hours}h ${minutes}m ${seconds}s`;
+            } else {
+                const countdownElement = document.getElementById(countdownId);
+                countdownElement.innerHTML = "Period Ended";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
