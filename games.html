@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games | CBRZM's Website</title>
+    <title>CBRZM's Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,26 +27,17 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;  /* Align the button in the center */
         }
 
-        #backButton {
+        button {
             background-color: #3498db;
             color: white;
             padding: 10px 20px;
             font-size: 16px;
             border: none;
             cursor: pointer;
-            border-radius: 8px; /* Rounded edges */
-        }
-
-        #pongButton {
-            background-color: #3498db;
-            color: white;
-            padding: 20px 40px;
-            font-size: 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px; /* Rounded edges */
+            border-radius: 8px;  /* Rounded corners */
         }
 
         footer {
@@ -64,12 +55,12 @@
 <body>
 
     <header>
-        <h1>Games</h1>
+        <h1>CBRZM's Website!</h1>
     </header>
 
     <section>
-        <button id="backButton" onclick="goBack()">Back</button>
-        <button id="pongButton" onclick="playPong()">PONG!</button>
+        <button id="countdownsBtn" onclick="openCountdownsPage()">Countdowns</button>
+        <button id="gamesBtn" onclick="openGamesPage()">Games</button>
     </section>
 
     <footer>
@@ -77,12 +68,12 @@
     </footer>
 
     <script>
-        function goBack() {
+        function openCountdownsPage() {
             window.location.href = "countdowns.html";
         }
 
-        function playPong() {
-            window.location.href = "pong.html";
+        function openGamesPage() {
+            window.location.href = "games.html";
         }
     </script>
 
