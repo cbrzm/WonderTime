@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdowns | CBRZM's Website</title>
+    <title>Countdowns</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,6 +11,7 @@
             padding: 0;
             background-color: #f0f0f0;
             color: #333;
+            text-align: center;
         }
 
         header {
@@ -29,34 +29,15 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        #backButton {
+        button {
             background-color: #3498db;
             color: white;
             padding: 10px 20px;
             font-size: 16px;
             border: none;
             cursor: pointer;
-            border-radius: 8px; /* Rounded edges */
-        }
-
-        #schoolDismissal {
-            color: #3498db;
-            font-size: 24px;
-        }
-
-        #firstLunch {
-            color: #3498db;
-            font-size: 24px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            margin: 10px;
+            border-radius: 8px;
         }
     </style>
 </head>
@@ -68,54 +49,18 @@
     </header>
 
     <section>
-        <button id="backButton" onclick="goBack()">Back</button>
-        <div id="schoolDismissal"></div>
-        <div id="firstLunch"></div>
+        <button id="firstLunchBtn" onclick="openFirstLunchPage()">First Lunch Schedule</button>
+        <button id="secondLunchBtn" onclick="openSecondLunchPage()">Second Lunch Schedule</button>
     </section>
 
-    <footer>
-        &copy; 2024 CBRZM's Website. All rights reserved.
-    </footer>
-
     <script>
-        function goBack() {
-            window.location.href = "index.html";
+        function openFirstLunchPage() {
+            window.location.href = "first_lunch_schedule.html";
         }
 
-        var schoolDismissalDate = new Date();
-        schoolDismissalDate.setHours(15, 11, 0, 0);
-
-        var firstLunchDate = new Date();
-        firstLunchDate.setHours(11, 50, 0, 0);
-
-        function updateCountdowns() {
-            var currentTime = new Date();
-
-            var schoolDismissalTimeRemaining = schoolDismissalDate - currentTime;
-            if (schoolDismissalTimeRemaining > 0) {
-                var hours = Math.floor(schoolDismissalTimeRemaining / (1000 * 60 * 60));
-                var minutes = Math.floor((schoolDismissalTimeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((schoolDismissalTimeRemaining % (1000 * 60)) / 1000);
-                document.getElementById("schoolDismissal").innerHTML = "School ends in " + hours + "h " + minutes + "m " + seconds + "s";
-            } else {
-                document.getElementById("schoolDismissal").innerHTML = "School ended!";
-            }
-
-            var firstLunchTimeRemaining = firstLunchDate - currentTime;
-            if (firstLunchTimeRemaining > 0) {
-                var hours = Math.floor(firstLunchTimeRemaining / (1000 * 60 * 60));
-                var minutes = Math.floor((firstLunchTimeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((firstLunchTimeRemaining % (1000 * 60)) / 1000);
-                document.getElementById("firstLunch").innerHTML = "1st Lunch in " + hours + "h " + minutes + "m " + seconds + "s";
-            } else if (currentTime.getHours() < 12 || (currentTime.getHours() === 12 && currentTime.getMinutes() < 20)) {
-                document.getElementById("firstLunch").innerHTML = "It's 1st lunch!";
-            } else {
-                document.getElementById("firstLunch").innerHTML = "1st Lunch is over";
-            }
+        function openSecondLunchPage() {
+            window.location.href = "second_lunch_schedule.html";
         }
-
-        setInterval(updateCountdowns, 1000);
-        updateCountdowns();
     </script>
 
 </body>
