@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>1st Lunch Schedule</title>
+    <title>First Lunch Schedule</title>
     <meta charset="UTF-8">
     <style>
         body {
@@ -40,7 +40,7 @@
 <body>
 
     <header>
-        <h1>1st Lunch Schedule</h1>
+        <h1>First Lunch Schedule</h1>
     </header>
 
     <section>
@@ -50,8 +50,23 @@
         <p>1st Period 9:50 am - 9:55 am</p>
         <div id="firstPeriodCountdown" class="countdown"></div>
 
-        <!-- Add similar countdown divs for other periods -->
+        <p>2nd Period 9:57 am - 10:53 am</p>
+        <div id="secondPeriodCountdown" class="countdown"></div>
 
+        <p>3rd Period 10:56 am - 11:50 am</p>
+        <div id="thirdPeriodCountdown" class="countdown"></div>
+
+        <p>1st Lunch 11:50 am - 12:20 pm</p>
+        <div id="firstLunchCountdown" class="countdown"></div>
+
+        <p>4th Period 12:23 pm - 1:17 pm</p>
+        <div id="fourthPeriodCountdown" class="countdown"></div>
+
+        <p>5th period 1:20 pm - 2:14 pm</p>
+        <div id="fifthPeriodCountdown" class="countdown"></div>
+
+        <p>6th period 2:17 pm - 3:11 pm</p>
+        <div id="sixthPeriodCountdown" class="countdown"></div>
     </section>
 
     <script>
@@ -60,13 +75,18 @@
 
         // Function to update the countdown
         function updateCountdown() {
-            updatePeriodCountdown("ebCountdown", 8, 44);
-            updatePeriodCountdown("firstPeriodCountdown", 9, 55);
-            // Add similar calls for other periods
+            updatePeriodCountdown("ebCountdown", 8, 44, "Early Bird (EB)");
+            updatePeriodCountdown("firstPeriodCountdown", 9, 55, "1st Period");
+            updatePeriodCountdown("secondPeriodCountdown", 10, 53, "2nd Period");
+            updatePeriodCountdown("thirdPeriodCountdown", 11, 50, "3rd Period");
+            updatePeriodCountdown("firstLunchCountdown", 12, 20, "1st Lunch");
+            updatePeriodCountdown("fourthPeriodCountdown", 13, 17, "4th Period");
+            updatePeriodCountdown("fifthPeriodCountdown", 13, 20, "5th Period");
+            updatePeriodCountdown("sixthPeriodCountdown", 15, 11, "6th Period");
         }
 
         // Function to update the countdown for a specific period
-        function updatePeriodCountdown(countdownId, endHour, endMinute) {
+        function updatePeriodCountdown(countdownId, endHour, endMinute, periodName) {
             const now = new Date();
             const endTime = new Date();
             endTime.setHours(endHour, endMinute, 0, 0);
@@ -82,7 +102,7 @@
                 countdownElement.innerHTML = `Countdown: ${hours}h ${minutes}m ${seconds}s`;
             } else {
                 const countdownElement = document.getElementById(countdownId);
-                countdownElement.innerHTML = "Period Ended";
+                countdownElement.innerHTML = `${periodName} Ended`;
             }
         }
     </script>
