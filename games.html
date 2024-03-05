@@ -1,77 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games | CBRZM's Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        header {
-            background: linear-gradient(to right, #3498db, #e74c3c);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        button {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Games</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Permanent Marker' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<style>
+    #div1 {
+        font-size: 48px;
+    }
 
+    body {
+        background-color: #721bc4;
+        font-family: 'Pacifico';
+    }
+
+    h1 {
+        background-color: #a666e3;
+        text-shadow: 5px 5px 5px #dfd2ec;
+        text-align: center;
+    }
+
+    canvas {
+        animation: mymove 5s infinite;
+        border: 5px solid #0a3cda;
+        border-style: dotted;
+        border-radius: 15px 50px;
+    }
+
+    @keyframes mymove {
+        50% {
+            box-shadow: 10px 20px 30px blue;
+        }
+    }
+
+    h3 {
+        font-family: 'Permanent Marker';
+    }
+
+    #snake-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
 <body>
-
-    <header>
-        <h1>Games | CBRZM's Website</h1>
-    </header>
-
-    <section>
-        <button id="pongBtn" onclick="openPongPage()">Pong</button>
-    </section>
-
-    <footer>
-        &copy; 2024 CBRZM's Website. All rights reserved.
-    </footer>
-
+    <h1><b>Games Hub</b></h1>
+    <button id="snake-button" onclick="startSnakeGame()">Snake Game</button>
     <script>
-        function openPongPage() {
-            window.location.href = "pong.html";
+        function startSnakeGame() {
+            window.location.href = 'Snake.html';
         }
     </script>
-
 </body>
-
 </html>
