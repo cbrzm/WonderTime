@@ -75,18 +75,18 @@
 
         // Function to update the countdown
         function updateCountdown() {
-            updatePeriodCountdown("ebCountdown", 8, 44);
-            updatePeriodCountdown("firstPeriodCountdown", 9, 55);
-            updatePeriodCountdown("secondPeriodCountdown", 10, 53);
-            updatePeriodCountdown("thirdPeriodCountdown", 11, 50);
-            updatePeriodCountdown("fourthPeriodCountdown", 12, 47);
-            updatePeriodCountdown("secondLunchCountdown", 13, 17);
-            updatePeriodCountdown("fifthPeriodCountdown", 13, 20);
-            updatePeriodCountdown("sixthPeriodCountdown", 15, 11);
+            updatePeriodCountdown("ebCountdown", 8, 44, "Early Bird (EB)");
+            updatePeriodCountdown("firstPeriodCountdown", 9, 55, "1st Period");
+            updatePeriodCountdown("secondPeriodCountdown", 10, 53, "2nd Period");
+            updatePeriodCountdown("thirdPeriodCountdown", 11, 50, "3rd Period");
+            updatePeriodCountdown("fourthPeriodCountdown", 12, 47, "4th Period");
+            updatePeriodCountdown("secondLunchCountdown", 13, 17, "Second Lunch");
+            updatePeriodCountdown("fifthPeriodCountdown", 13, 20, "5th Period");
+            updatePeriodCountdown("sixthPeriodCountdown", 15, 11, "6th Period");
         }
 
         // Function to update the countdown for a specific period
-        function updatePeriodCountdown(countdownId, endHour, endMinute) {
+        function updatePeriodCountdown(countdownId, endHour, endMinute, periodName) {
             const now = new Date();
             const endTime = new Date();
             endTime.setHours(endHour, endMinute, 0, 0);
@@ -102,7 +102,7 @@
                 countdownElement.innerHTML = `Countdown: ${hours}h ${minutes}m ${seconds}s`;
             } else {
                 const countdownElement = document.getElementById(countdownId);
-                countdownElement.innerHTML = "Period Ended";
+                countdownElement.innerHTML = `${periodName} Ended`;
             }
         }
     </script>
