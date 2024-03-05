@@ -27,6 +27,7 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;  /* Align the button in the center */
         }
 
         button {
@@ -36,7 +37,7 @@
             font-size: 16px;
             border: none;
             cursor: pointer;
-            border-radius: 8px; /* Rounded edges */
+            border-radius: 8px;  /* Rounded corners */
         }
 
         footer {
@@ -59,6 +60,7 @@
 
     <section>
         <button id="countdownsBtn" onclick="openCountdownsPage()">Countdowns</button>
+        <button id="gamesBtn" onclick="openGamesPage()">Games</button>
     </section>
 
     <footer>
@@ -68,6 +70,10 @@
     <script>
         function openCountdownsPage() {
             window.location.href = "countdowns.html";
+        }
+
+        function openGamesPage() {
+            window.location.href = "games.html";
         }
     </script>
 
